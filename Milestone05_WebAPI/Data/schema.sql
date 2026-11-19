@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS Users (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Username TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    PasswordHash TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Genres (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS Books (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    UserId INTEGER NOT NULL,
+    GenreId INTEGER NOT NULL,
+    Title TEXT NOT NULL COLLATE NOCASE,
+    Author TEXT NOT NULL,
+    Year INTEGER NOT NULL,
+    Status INTEGER NOT NULL CHECK (Status IN (0, 1, 2)),
+    UNIQUE (UserId, Title),
+    FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE,
+    FOREIGN KEY (GenreId) REFERENCES Genres(Id)
+);
+
+INSERT OR IGNORE INTO Genres (Name) VALUES
+    ('Fantasy'),
+    ('Science fiction'),
+    ('Mystery'),
+    ('Romance'),
+    ('History'),
+    ('Biography'),
+    ('Other');
