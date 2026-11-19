@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="Milestone01_BasicConsole/Milestone01_BasicConsole.CSPROJ" />
   <Project Path="Milestone02_OOP/Milestone02_OOP.CSPROJ" />
+  <Project Path="Milestone03_LayeredConsole/Milestone03_LayeredConsole.csproj" />
 </Solution>

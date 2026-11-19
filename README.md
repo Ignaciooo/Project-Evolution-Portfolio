@@ -17,3 +17,10 @@ Same app, now modelled with classes: `Book` (properties, constructor and encapsu
 What changed: the dictionaries were replaced by a `Book` class, so the data is typed and validated. The status is now an enum.
 
 How to run: open a terminal in `Milestone02_OOP` and run `dotnet run`.
+
+## Milestone 03 - Layered Multi-user Console Application
+The app is split into layers: Presentation (`ConsoleUI`), Services (`AuthService`, `BookService`) and Repositories (`UserRepository`, `BookRepository`, JSON files). Users can register, log in and log out, and each user only sees their own books.
+
+What changed: the code moved from one `Library` class to separate layers. Validation rules are now in the service layer, and every book has an `OwnerId`.
+
+How to run: open a terminal in `Milestone03_LayeredConsole` and run `dotnet run`.
