@@ -24,3 +24,12 @@ The app is split into layers: Presentation (`ConsoleUI`), Services (`AuthService
 What changed: the code moved from one `Library` class to separate layers. Validation rules are now in the service layer, and every book has an `OwnerId`.
 
 How to run: open a terminal in `Milestone03_LayeredConsole` and run `dotnet run`.
+
+## Milestone 04 - Database Application
+The JSON files were replaced by a relational SQLite database (`library.db`) accessed with Dapper. Tables: `Users`, `Genres` and `Books`. `Books` has a foreign key to `Users` (each book belongs to a user) and another to `Genres` (each book has a genre). The SQL schema is in `Data/schema.sql` and example queries in `Data/queries.sql`.
+
+What changed: the repositories now run SQL (INSERT, SELECT with JOIN, LIKE, COUNT with GROUP BY, DELETE) instead of reading and writing JSON. Services and presentation keep the same layers. New: genres and a statistics option.
+
+Database concepts: primary keys, foreign keys, one-to-many relationships, UNIQUE constraints (username, and title per user), CHECK constraint, JOIN and GROUP BY.
+
+How to run: open a terminal in `Milestone04_Database`, run `dotnet add package Dapper` and `dotnet add package Microsoft.Data.Sqlite` if the packages are missing, then `dotnet run`.

@@ -3,3 +3,4 @@ obj/
 .vs/
 books.json
 users.json
+*.db
